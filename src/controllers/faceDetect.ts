@@ -1,8 +1,11 @@
+
 import { Request, Response } from 'express';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const Clarifai = require('clarifai');
 const app = new Clarifai.App({
-  apiKey: 'PUT YOUR API KEY HERE'
+  apiKey: process.env.CLARIFAI_API_KEY
 });
 
 export function faceDetect(req: Request, res: Response) {
